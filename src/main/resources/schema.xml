@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbe:messageSchema xmlns:sbe="http://fixprotocol.io/2016/sbe"
+                   xmlns:xi="http://www.w3.org/2001/XInclude"
+                   package="group.gnometrading.objects"
+                   id="1"
+                   version="0"
+                   semanticVersion="5.2"
+                   description="Objects used in Gnome Trading Group"
+                   byteOrder="littleEndian">
+    <types>
+        <!-- Common types across all SBE schemas  -->
+        <composite name="messageHeader" description="Message identifiers and length of message root.">
+            <type name="blockLength" primitiveType="uint16"/>
+            <type name="templateId" primitiveType="uint16"/>
+            <type name="schemaId" primitiveType="uint16"/>
+            <type name="version" primitiveType="uint16"/>
+        </composite>
+
+        <!-- User-defined types -->
+        <type name="timestamp" primitiveType="uint64" />
+
+        <type name="price" primitiveType="int64" />
+        <type name="size" primitiveType="uint32" />
+
+        <enum name="Action" encodingType="char">
+            <validValue name="Add">A</validValue>
+            <validValue name="Cancel">C</validValue>
+            <validValue name="Modify">M</validValue>
+            <validValue name="Clear">R</validValue>
+            <validValue name="Trade">T</validValue>
+            <validValue name="Fill">F</validValue>
+        </enum>
+        <enum name="Side" encodingType="char">
+            <validValue name="Buy">B</validValue>
+            <validValue name="Sell">S</validValue>
+            <validValue name="None">N</validValue>
+        </enum>
+
+        <enum name="OrderType" encodingType="uint8">
+            <validValue name="LIMIT">0</validValue>
+            <validValue name="MARKET">1</validValue>
+            <validValue name="STOP_LIMIT">2</validValue>
+            <validValue name="STOP_MARKET">3</validValue>
+        </enum>
+
+        <enum name="TimeInForce" encodingType="uint8">
+            <validValue name="GOOD_TILL_CANCELED">0</validValue>
+            <validValue name="IMMEDIATE_OR_CANCELED">1</validValue>
+            <validValue name="FILL_OR_KILL">2</validValue>
+        </enum>
+
+        <set name="MarketUpdateFlags" encodingType="uint8">
+            <choice name="lastMessage">7</choice>
+            <choice name="topOfBook">6</choice>
+            <choice name="snapshot">5</choice>
+            <choice name="marketByPrice">4</choice>
+            <choice name="badTimestampRecv">3</choice>
+            <choice name="maybeBadBook">2</choice>
+        </set>
+
+        <set name="OrderFlags" encodingType="uint8">
+            <choice name="todo">0</choice>
+        </set>
+    </types>
+    <sbe:message name="MarketUpdate" id="1" description="General market update object">
+        <field name="exchangeId" id="1" type="uint16" />
+        <field name="securityId" id="2" type="uint32" />
+        <field name="orderId" id="3" type="uint64" />
+        <field name="clientOid" id="4" type="uint64" />
+        <field name="price" id="5" type="price" />
+        <field name="size" id="6" type="size" />
+        <field name="flags" id="7" type="MarketUpdateFlags" />
+        <field name="action" id="8" type="Action" />
+        <field name="side" id="9" type="Side" />
+        <field name="timestampEvent" id="10" type="timestamp" />
+        <field name="timestampSend" id="11" type="timestamp" />
+        <field name="timestampRecv" id="12" type="timestamp" />
+        <field name="sequence" id="13" type="uint32" />
+    </sbe:message>
+    <sbe:message name="Order" id="2" description="Outgoing order submitted to an exchange.">
+        <field name="exchangeId" id="1" type="uint16" />
+        <field name="securityId" id="2" type="uint32" />
+        <field name="strategyId" id="3" type="uint16" />
+        <field name="timestampSend" id="4" type="timestamp" />
+        <field name="clientOid" id="5" type="uint64" />
+        <field name="price" id="6" type="price" />
+        <field name="size" id="7" type="size" />
+        <field name="side" id="8" type="Side" />
+        <field name="flags" id="9" type="OrderFlags" />
+        <field name="orderType" id="10" type="OrderType" />
+        <field name="timeInForce" id="11" type="TimeInForce" />
+    </sbe:message>
+</sbe:messageSchema>
