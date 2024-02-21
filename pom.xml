@@ -22,8 +22,17 @@
         </dependency>
     </dependencies>
 
+    <scm>
+        <developerConnection>scm:git:git@github.com:gnome-trading-group/SBEObjects.git</developerConnection>
+    </scm>
+
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>3.0.1</version>
+            </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
