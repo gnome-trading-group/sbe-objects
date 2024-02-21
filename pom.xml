@@ -26,6 +26,14 @@
         <developerConnection>scm:git:git@github.com:gnome-trading-group/SBEObjects.git</developerConnection>
     </scm>
 
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub GTG Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/gnome-trading-group/default</url>
+        </repository>
+    </distributionManagement>
+
     <build>
         <plugins>
             <plugin>
