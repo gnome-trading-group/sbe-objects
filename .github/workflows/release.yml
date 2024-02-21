@@ -31,7 +31,6 @@ jobs:
           java-version: '17'
           distribution: 'zulu'
           server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
-          settings-path: ${{ github.workspace }} # location for the settings.xml file
 
       - name: Configure Git User
         run: |
@@ -39,7 +38,7 @@ jobs:
           git config user.name "GitHub Actions"
 
       - name: Cut Release
-        run: mvn release:prepare release:perform -B -s $GITHUB_WORKSPACE/settings.xml -DreleaseVersion=${{ github.event.inputs.releaseVersion }} -DdevelopmentVersion=${{ github.event.inputs.developmentVersion }}
+        run: mvn release:prepare release:perform -B -s settings.xml -DreleaseVersion=${{ github.event.inputs.releaseVersion }} -DdevelopmentVersion=${{ github.event.inputs.developmentVersion }}
         env:
           GITHUB_ACTOR: ${{ github.actor }}
           GITHUB_TOKEN: ${{ github.token }}
