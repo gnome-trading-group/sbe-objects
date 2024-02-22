@@ -4,7 +4,7 @@
 
     <groupId>group.gnometrading.objects</groupId>
     <artifactId>SBEObjects</artifactId>
-    <version>1.2.1-SNAPSHOT</version>
+    <version>1.2.1</version>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -23,7 +23,7 @@
     <scm>
         <connection>scm:git:git@github.com:gnome-trading-group/SBEObjects.git</connection>
         <developerConnection>scm:git:git@github.com:gnome-trading-group/SBEObjects.git</developerConnection>
-      <tag>HEAD</tag>
+      <tag>SBEObjects-1.2.1</tag>
   </scm>
 
     <distributionManagement>
