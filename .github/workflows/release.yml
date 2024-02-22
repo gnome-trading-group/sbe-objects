@@ -19,8 +19,7 @@ jobs:
   release:
     runs-on: ubuntu-latest
     permissions:
-      contents: write
-      pull-requests: write
+      packages: write
     steps:
       - name: Checkout Source Code
         uses: actions/checkout@v2
