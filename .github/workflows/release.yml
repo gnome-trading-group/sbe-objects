@@ -23,7 +23,7 @@ jobs:
       pull-requests: write
     steps:
       - name: Checkout Source Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
         with:
           ref: ${{ github.event.inputs.branch }}
 
@@ -34,10 +34,10 @@ jobs:
           distribution: 'zulu'
           server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
 
-      # - name: Configure Git User
-      #   run: |
-      #     git config user.email "actions@github.com"
-      #     git config user.name "GitHub Actions"
+      - name: Configure Git User
+        run: |
+          git config user.email "actions@github.com"
+          git config user.name "GitHub Actions"
 
       - name: Cut Release
         run: mvn release:prepare release:perform -B -s settings.xml -DreleaseVersion=${{ github.event.inputs.releaseVersion }} -DdevelopmentVersion=${{ github.event.inputs.developmentVersion }}
