@@ -30,7 +30,7 @@
         <repository>
             <id>github</id>
             <name>GitHub GTG Apache Maven Packages</name>
-            <url>https://maven.pkg.github.com/gnome-trading-group/default</url>
+            <url>https://maven.pkg.github.com/gnome-trading-group/SBEObjects</url>
         </repository>
     </distributionManagement>
 
