@@ -2,7 +2,7 @@ name: Create a release
 on:
   push:
     branches:
-      - 'master'
+      - 'xxx'
 
 jobs:
   release:
