@@ -26,9 +26,11 @@
             <validValue name="Add">A</validValue>
             <validValue name="Cancel">C</validValue>
             <validValue name="Modify">M</validValue>
-            <validValue name="Clear">R</validValue>
+            <validValue name="Clear">W</validValue>
             <validValue name="Trade">T</validValue>
             <validValue name="Fill">F</validValue>
+            <validValue name="Rejected">R</validValue>
+            <validValue name="Posted">P</validValue>
         </enum>
         <enum name="Side" encodingType="char">
             <validValue name="Buy">B</validValue>
