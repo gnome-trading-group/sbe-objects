@@ -67,15 +67,15 @@
     <sbe:message name="MarketUpdate" id="1" description="General market update object">
         <field name="exchangeId" id="1" type="uint16" />
         <field name="securityId" id="2" type="uint32" />
-        <field name="orderId" id="3" type="uint64" />
-        <field name="clientOid" id="4" type="uint64" />
-        <field name="price" id="5" type="price" />
-        <field name="size" id="6" type="size" />
-        <field name="flags" id="7" type="MarketUpdateFlags" />
-        <field name="action" id="8" type="Action" />
-        <field name="side" id="9" type="Side" />
-        <field name="timestampEvent" id="10" type="timestamp" />
-        <field name="timestampRecv" id="12" type="timestamp" />
+        <field name="timestampEvent" id="3" type="timestamp" />
+        <field name="timestampRecv" id="4" type="timestamp" />
+        <field name="orderId" id="5" type="uint64" />
+        <field name="clientOid" id="6" type="uint64" />
+        <field name="price" id="7" type="price" />
+        <field name="size" id="8" type="size" />
+        <field name="action" id="9" type="Action" />
+        <field name="side" id="10" type="Side" />
+        <field name="flags" id="11" type="MarketUpdateFlags" />
     </sbe:message>
     <sbe:message name="Order" id="2" description="Outgoing order submitted to an exchange.">
         <field name="exchangeId" id="1" type="uint16" />
