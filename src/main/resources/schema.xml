@@ -67,8 +67,8 @@
     <sbe:message name="MarketUpdate" id="1" description="General market update object">
         <field name="exchangeId" id="1" type="uint16" />
         <field name="securityId" id="2" type="uint32" />
-        <field name="timestampEvent" id="3" type="timestamp" />
-        <field name="timestampRecv" id="4" type="timestamp" />
+        <field name="timestampRecv" id="3" type="timestamp" />
+        <field name="timestampEvent" id="4" type="timestamp" />
         <field name="orderId" id="5" type="uint64" />
         <field name="clientOid" id="6" type="uint64" />
         <field name="price" id="7" type="price" />
